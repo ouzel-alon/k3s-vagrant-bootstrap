@@ -1,0 +1,16 @@
+# python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# python virtual environments
+.venv
+venv/
+py3*/
+
+# vagrant
+**/.vagrant
+
+# ssh keypairs
+**/files/*
+id_*

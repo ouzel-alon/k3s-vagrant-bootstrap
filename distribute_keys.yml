@@ -1,0 +1,14 @@
+---
+- name: Distribute public key to target hosts
+  hosts: all
+  gather_facts: false
+
+  vars:
+    pubkey: "id_ed25519_k3s"
+
+  tasks:
+   - name: Distribute public key to all hosts
+     ansible.posix.authorized_key:
+      user: vagrant
+      state: present
+      key: "{{ lookup('file', '{{ pubkey }}.pub') }}"

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+VAGRANTHOME="/home/vagrant"
+
+pytest $VAGRANTHOME/ansible/tests/test_ansible_host.py
+# pytest --hosts='ansible://localhost' $VAGRANTHOME/ansible/tests/test_ansible_ping.py

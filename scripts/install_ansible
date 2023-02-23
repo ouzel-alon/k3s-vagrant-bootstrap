@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+VAGRANTHOME="/home/vagrant"
+
+# sudo timedatectl set-local-rtc 0
+# sudo timedatectl set-ntp true
+# sudo timedatectl set-timezone Australia/Queensland
+
+sudo setup-timezone -z Australia/Queensland
+sudo apk add git python3 py3-ruamel.yaml.clib
+
+# sudo dnf install -y git tree
+
+# setup virtual environment, clean up any that exists
+python3 -m venv py39 --clear --system-site-packages --upgrade-deps
+
+# if [ ! -d "${VAGRANTHOME}/.bashrc.d" ]; then
+#     mkdir $VAGRANTHOME/.bashrc.d
+# fi
+# touch $VAGRANTHOME/.bashrc.d/py39
+
+if [ ! -f "${VAGRANTHOME}/.profile" ]; then
+    touch $VAGRANTHOME/.profile
+fi
+echo '. py39/bin/activate' > $VAGRANTHOME/.profile
+
+# shellcheck source=/dev/null
+. ~/.profile
+
+python -m pip install -r $VAGRANTHOME/ansible/scripts/requirements.txt

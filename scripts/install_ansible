@@ -4,8 +4,8 @@ VAGRANTHOME="/home/vagrant"
 # sudo timedatectl set-local-rtc 0
 # sudo timedatectl set-ntp true
 # sudo timedatectl set-timezone Australia/Queensland
+# sudo setup-timezone -z Australia/Queensland
 
-sudo setup-timezone -z Australia/Queensland
 sudo apk add git python3 py3-ruamel.yaml.clib
 
 # sudo dnf install -y git tree
